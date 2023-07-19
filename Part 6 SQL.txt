@@ -1,0 +1,57 @@
+/*Number 1*/
+select * from Department;
+select * from BankRoutingName;
+select * from BankAccountInfo;
+select * from Instructor;
+select * from Courses;
+select * from Student;
+select * from Enrollment;
+
+/*Number 2*/
+select c.course_instructor_SSN, c.CRN, i.instructor_name
+from Courses c
+inner join Instructor i on i.instructor_SSN = c.course_instructor_SSN
+where c.course_instructor_SSN = (select i.instructor_SSN from Instructor group by c.course_instructor_SSN having count(*) < 3);
+
+/*Number 3*/
+select i.instructor_name, i.department_name,i.salary, d.department_name, d.max_salary
+from Instructor i
+inner join Department d on i.department_name = d.department_name
+where i.department_name = 'English';
+
+/*Number 4*/
+select student_SSN_E, count(*) from Enrollment group by student_ssn_e;
+
+/*Number 5*/
+select avg(salary) from Instructor;
+
+/*Number 6*/
+select sum(salary), department_name, instructor_name from Instructor group by instructor_name, department_name having count (*) < 2;
+
+/*Number 7*/
+select i.instructor_name, i.bank_info, b.bank_info, b.bank_routing_number, b.account_number, b.account_holder
+from Instructor i
+right join bankaccountinfo b on i.bank_info = b.bank_info;
+
+/*Number 8*/
+select b.bank_name, b.routing_number, a.bank_routing_number, a.account_number, a.account_holder
+from bankroutingname b
+inner join bankaccountinfo a on a.bank_routing_number = b.routing_number;
+
+/*Number 10*/
+select student_SSN_E, grade from enrollment where grade like 'A' order by grade;
+
+/*Number 9*/
+update Instructor set salary = 120000
+where department_name like 'English';
+
+update Instructor set salary = 80000
+where department_name like 'Physics';
+
+update Instructor set salary = 95000
+where department_name like 'Math';
+
+update Instructor set salary = 80000
+where department_name like 'Sociology';
+
+select * from instructor;

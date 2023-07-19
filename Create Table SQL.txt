@@ -1,0 +1,56 @@
+create table Department(
+department_name varchar(20) not null,
+min_salary int,
+max_salary int,
+constraint D_Name_PK primary key (department_name),
+constraint min_salary_check check (min_salary > 0),
+constraint max_salary_check check (max_salary > 0)
+);
+create table BankRoutingName(
+routing_number int not null,
+bank_name varchar (20),
+constraint routing_number_PK primary key (routing_number)
+);
+create table BankAccountInfo(
+bank_info int not null,
+bank_routing_number int not null,
+account_number int,
+account_holder varchar(20),
+constraint bank_info_PK primary key (bank_info),
+constraint bank_routing_number_FK foreign key (bank_routing_number) references BankRoutingName(routing_number)
+);
+create table Instructor(
+instructor_SSN varchar(11) not null,
+instructor_name varchar(20),
+salary int,
+department_name varchar(20),
+bank_info int,
+constraint SSN_PK primary key (instructor_SSN),
+constraint SSN_Check check (instructor_SSN like '___-__-____'),
+constraint dept_name_FK foreign key (department_name) references Department(department_name),
+constraint bank_info_FK foreign key (bank_info) references BankAccountInfo(bank_info),
+constraint salary_check check (salary > 0)
+);
+create table Courses(
+CRN int not null,
+course_name varchar(20),
+course_instructor_SSN varchar(20),
+constraint CRN_PK primary key (CRN),
+constraint instructor_SSN_FK foreign key (course_instructor_SSN) references Instructor(instructor_SSN),
+constraint Courses_instructor_SSN_Check check (course_instructor_SSN like '___-__-____')
+);
+create table Student(
+student_SSN varchar(11) not null,
+student_name varchar(20),
+major varchar(5),
+constraint student_SSN_PK primary key (student_SSN),
+constraint student_SSN_Check check (student_SSN like '___-__-____')
+);
+create table Enrollment(
+E_CRN int not null,
+student_SSN_E varchar(11) not null,
+grade char,
+constraint student_SSN_E_check check (student_SSN_E like '___-__-____'),
+constraint E_CRN_FK foreign key (E_CRN) references Courses(CRN),
+constraint student_SSN_E_FK foreign key (student_SSN_E) references Student(student_SSN)
+);

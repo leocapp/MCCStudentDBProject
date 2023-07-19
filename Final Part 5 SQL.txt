@@ -1,0 +1,74 @@
+/*Department Inserts*/
+insert into Department (department_name, min_salary, max_salary) values ('English', 80000, 120000);
+insert into Department (department_name, min_salary, max_salary) values ('Math', 70000, 95000);
+insert into Department (department_name, min_salary, max_salary) values ('Sociology', 50000, 80000);
+insert into Department (department_name, min_salary, max_salary) values ('Physics', 50000, 80000);
+
+/*Bank Routing Inserts*/
+insert into BankRoutingName (routing_number, bank_name) values (102030, 'Manchester Bank');
+insert into BankRoutingName (routing_number, bank_name) values (997788, 'Old Farms Bank');
+insert into BankRoutingName (routing_number, bank_name) values (777777, 'Green Land Bank');
+
+/*Bank Account Info inserts*/
+insert into BankAccountInfo (bank_info, bank_routing_number, account_number, account_holder) values (1, 102030, 111111, 'Bugs Bunny'); 
+insert into BankAccountInfo (bank_info, bank_routing_number, account_number, account_holder) values (2, 102030, 222222, 'Daffy Duck');
+insert into BankAccountInfo (bank_info, bank_routing_number, account_number, account_holder) values (3, 997788, 111222, 'Popeye');
+insert into BankAccountInfo (bank_info, bank_routing_number, account_number, account_holder) values (4, 997788, 919191, 'Winnie');
+insert into BankAccountInfo (bank_info, bank_routing_number, account_number, account_holder) values (5, 777777, 101010, 'Snoopy');
+
+/*Instructor Inserts*/
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('123-56-9898', 'Bugs Bunny', 100000, 'English', 1);
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('111-22-3333', 'Tweety', 90000, 'English', 2);
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('444-11-2222', 'Daffy Duck', 73000, 'Math', 2);
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('192-98-9091', 'Popeye', 82000, 'Math', 3);
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('120-19-9811', 'Winnie the Pooh', 55000, 'Physics', 4);
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('234-98-1918', 'Mickey Mouse', 60000, 'Sociology', 5);
+insert into Instructor (instructor_SSN, instructor_name, salary, department_name, bank_info) values ('651-62-2811', 'Snoopy', 70000, 'Physics', 5);
+
+/*Courses Inserts*/
+insert into Courses (CRN,course_name, course_instructor_SSN) values (12, 'ENG 101', '123-56-9898');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (15, 'ENG 110', '123-56-9898');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (23, 'ENG 96', '111-22-3333');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (44, 'ENG 101', '111-22-3333');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (22, 'MATH 173', '444-11-2222');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (33, 'MATH 182', '444-11-2222');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (55, 'MATH 187', '192-98-9091');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (66, 'MATH 201', '192-98-9091');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (77, 'PHY 111', '120-19-9811');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (88, 'PHY 121', '120-19-9811');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (99, 'PHY 110', '651-62-2811');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (10, 'PHY 111', '651-62-2811');
+insert into Courses (CRN,course_name, course_instructor_SSN) values (45, 'SOC 121', '234-98-1918');
+
+/*Students Inserts*/
+insert into Student (student_SSN, student_name, major) values ('123-22-9898', 'Charlie Brown', 'CS');
+insert into Student (student_SSN, student_name, major) values ('111-55-3333', 'Snow White', 'CS');
+insert into Student (student_SSN, student_name, major) values ('120-66-9811', 'Goofy', 'CS');
+insert into Student (student_SSN, student_name, major) values ('555-56-9898', 'Yogi Bear', 'MAT');
+insert into Student (student_SSN, student_name, major) values ('888-22-3333', 'Cinderella', 'MAT');
+insert into Student (student_SSN, student_name, major) values ('999-11-2222', 'Woody Woodpecker', 'MAT');
+insert into Student (student_SSN, student_name, major) values ('345-98-9091', 'Batman', 'PHY');
+insert into Student (student_SSN, student_name, major) values ('222-98-1918', 'LittleRed RidingHood', 'PHY');
+
+/*Enrollment Inserts*/
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (12, '123-22-9898', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (12, '111-55-3333', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (15, '120-66-9811', 'C');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (15, '999-11-2222', 'F');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (23, '555-56-9898', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (44, '888-22-3333', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (22, '123-22-9898', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (22, '999-11-2222', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (33, '111-55-3333', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (33, '120-66-9811', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (55, '888-22-3333', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (66, '555-56-9898', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (66, '222-98-1918', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (77, '123-22-9898', 'A');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (88, '120-66-9811', 'F');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (88, '345-98-9091', 'C');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (99, '888-22-3333', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (10, '555-56-9898', 'B');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (45, '111-55-3333', 'D');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (45, '123-22-9898', 'C');
+insert into Enrollment (E_CRN, student_SSN_E, grade) values (45, '555-56-9898', 'A');
